@@ -1,5 +1,5 @@
 # KPOP Inventory System
-This is a simple inventory management system for KPOP merchandise built using Tkinter and SQLite3.
+This is a simple inventory management system for KPOP merchandise built using Tkinter.
 
 ## Features
 
