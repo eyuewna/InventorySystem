@@ -2,7 +2,6 @@ import sqlite3
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-# idk pano iconnect :,DD
 conn = sqlite3.connect('data.db')
 cursor = conn.cursor()
 
@@ -18,12 +17,21 @@ def logout():
 def handle_choice_click(choice):
     selected_choice.set(choice)
 
+    # Update the background color of the selected button
+    for button in choice_buttons:
+        if button.cget("text") == choice:
+            button.config(bg="#AA336A")
+        else:
+            button.config(bg="#ff94c4")
+
+    # Remove all items from the Treeview
     tree.delete(*tree.get_children())
 
     if choice == "ALL MERCH":
         for item in data:
             tree.insert("", "end", values=item)
     else:
+        # Insert items belonging to the selected category
         for item in data:
             if item[0] == choice:
                 tree.insert("", "end", values=item)
